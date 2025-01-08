@@ -7,7 +7,7 @@ const connection = mysql.createConnection({
     database: 'films_db'
 })
 
-connection.connect(() => {
+connection.connect((err) => {
     if(err) throw err
 
     console.log('Connect to MYSQL');
