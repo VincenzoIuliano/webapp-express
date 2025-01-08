@@ -3,7 +3,7 @@ const app = express();
 const port = 3000;
 const notFound = require('./middlewares/notFound')
 const errorsHandler = require('./middlewares/errorsHandler')
-const filmRouter = require('./routers/filmRouter')
+const movieRouter = require('./routers/movieRouter')
 
 app.use(express.static('public'))
 
@@ -12,7 +12,7 @@ app.get('/', (req,res) => {
 })
 
 // ROTTE 
-app.use('/api/films', filmRouter)
+app.use('/api/movies', movieRouter)
 
 
 // USO UN MIDDLEWARE PER GESTIRE GLI EVENTUALI ERRORI
