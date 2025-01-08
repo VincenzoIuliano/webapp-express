@@ -29,8 +29,15 @@ function show(req,res) {
         if(results.length === 0 ) return res.status(404).json({message: 'Movie not found'})
             
         const book = results[0]
-    
-        res.json(book)
+
+        const sql = `SELECT * FROM reviews WHERE movie_id = ?`
+
+        connection.query(sql, [id] ,(err, results) => {
+            if(err) return res.status(500).json({message: err.message})
+            
+            book.reviews = results
+            res.json(book)
+        })
     })
 
 }
