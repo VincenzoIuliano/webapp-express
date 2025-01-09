@@ -1,6 +1,6 @@
 // CREO UNA FUNZIONE PER GESTIRE EVENTUALI ERRORI
 
-function errorsHandler(err,req,res, next) {   
+function errorsHandler(err, _,res, _) {   
     res.status(500).json({
         message: err.message
     })
