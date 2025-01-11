@@ -1,5 +1,6 @@
 const connection = require('../data/db')
 
+
 // Recupero la lista dei film
 function index(req,res) {
     // recupero l'elenco dei miei film dal DB 
@@ -9,6 +10,11 @@ function index(req,res) {
     connection.query(sql,(err, movies) => {
         if(err) return res.status(500).json({message: err.message})
         // console.log(movies);
+
+        movies.forEach((movie) => {
+            movie.image=`http://localhost:3000/movies_cover/${movie.image}`
+        })
+
         res.json(movies)
     })
     

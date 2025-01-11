@@ -5,6 +5,9 @@ const notFound = require('./middlewares/notFound')
 const errorsHandler = require('./middlewares/errorsHandler')
 const movieRouter = require('./routers/movieRouter')
 
+// ADD THIS
+var cors = require('cors');
+app.use(cors());
 app.use(express.static('public'))
 
 app.get('/', (req,res) => {
