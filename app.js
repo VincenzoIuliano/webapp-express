@@ -9,6 +9,8 @@ const movieRouter = require('./routers/movieRouter')
 var cors = require('cors');
 app.use(cors());
 app.use(express.static('public'))
+// BODY PARSER 
+app.use(express.json())
 
 app.get('/', (req,res) => {
     res.send('Server running')
